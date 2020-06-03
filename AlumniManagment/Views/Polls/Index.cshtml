@@ -1,0 +1,39 @@
+﻿@model List<Polls>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var poll in Model)
+{
+    <div class="single-upcoming-event">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="up-event-thumb">
+                    @*<h4 class="up-event-date">Start @item.calendar.start</h4>*@
+                    <h4 class="up-event-date">End @poll.calendar.end</h4>
+                    @*<h4 class="up-event-date">Registration Fee: Rs @item.registrationFee</h4>*@
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="display-table">
+                    <div class="display-table-cell">
+                        <div class="up-event-text">
+                            <form method="post" asp-controller="polls" asp-action="answer" asp-route-pId="@poll.Id">
+                                <h3><a href="single-event.html">@poll.Question</a></h3>
+                                <div class="radio">
+                                    <label><input type="radio" name="answer" checked value="yes">Yes</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="answer" value="no">No</label>
+                                </div>
+                                <input type="submit" class="btn btn-primary"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

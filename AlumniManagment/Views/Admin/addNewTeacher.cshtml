@@ -1,0 +1,44 @@
+﻿@model AddNewTeacherViewModel
+
+    <div class="container">
+        <div class="modal" id="addNewTeacher">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create New Teacher Profile</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form asp-action="addNewTeacherProfile" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label asp-for="Picture">Name</label>
+                                <input asp-for="Picture" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input class="form-control" asp-for="Name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Specialization">Specialization</label>
+                                <textarea class="form-control" asp-for="Specialization"> </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="departments">Name</label>
+                                <select asp-for="dept" asp-items="Model.departments" class="custom-select">
+                                    <option selected disabled>Custom Select Menu</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

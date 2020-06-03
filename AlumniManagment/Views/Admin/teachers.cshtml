@@ -1,0 +1,37 @@
+﻿@model TeachersViewModel
+@{
+    ViewBag.Title = "create";
+}
+    <partial name="addNewTeacher" model="Model.AddNewTeacherViewModel"></partial>
+    <div style="width:80%; margin: 0 auto; padding:10px; box-shadow: 5px 5px silver">
+        <button class="btn btn-info" data-toggle="modal" data-target="#addNewTeacher">Add</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Department</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Teacher t in Model.Teachers)
+                {
+                    <tr>
+                        <td>@t.Name</td>
+                        <td>@t.Specialization</td>
+                        <td>@t.Department.Name</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>

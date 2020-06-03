@@ -1,0 +1,52 @@
+﻿@model AlumniManagment.Dtos.eventRegistrationDto
+@{
+    ViewBag.Title = "register";
+}
+<h4 style="text-align:center">Register For an Event.</h4>
+
+<br />
+
+<table class="table-hover table-bordered" align="center">
+    <tr>
+        <th class="text-center">Title</th>
+        <th class="text-center"> Registration Fee </th>
+    </tr>
+    <tr>
+        <td style="padding: 50px">@TempData["title"] </td>
+        <td style="padding: 50px">@TempData["registrationFee"] </td>
+    </tr>
+    <tr>
+        <th class="text-center">Dinner Fee</th>
+        <th class="text-center"> Shirt Fee </th>
+    </tr>
+    <tr>
+        <td style="padding: 50px"> @TempData["dinnerFee"] </td>
+        <td style="padding: 50px">@TempData["shirtFee"]</td>
+    </tr>
+</table>
+
+
+<form class="form-horizontal" method="post" asp-action="register" asp-controller="Event" asp-route-eventId="@TempData["eventId"]">
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="isShirt" /> Include Shirt?
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="isDinner" /> Include Dinner?
+        </label>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+</form>

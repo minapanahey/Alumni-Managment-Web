@@ -1,0 +1,155 @@
+﻿
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-collapse a {
+    background-color: white;
+    color: black !important;
+    margin: 18px 5px 5px 5px;
+    padding: 10px !important;
+    border-radius: 10px;
+}
+
+    .navbar-collapse a:hover {
+        background-color: #00B295 !important;
+    }
+
+.single-upcoming-event {
+    background-color: #8F65AF;
+    width: 70%;
+    padding: 20px;
+    margin: 15px auto;
+}
+
+.up-event-text {
+    color: black;
+}
+
+    .up-event-text a {
+        color: black;
+        text-decoration: none;
+    }
+
+.up-event-date {
+    background-color: #9D78B9;
+    border-radius: 9px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+.register-button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 15px;
+    text-decoration: none !important;
+}
+
+    .register-button:hover {
+        background-color: #662C91 !important;
+    }
+
+.event-countdown-container {
+    width: 35%;
+    font-family: 'Times New Roman';
+    font-size: larger;
+}
+
+.event-countdown-counter {
+    width: 100%;
+    display: grid;
+    grid-gap: 6px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.counter-item
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+    text-align: center;
+}
+
+.single-cont {
+    padding: 15px;
+    background-color: #9D78B9;
+    color: white;
+}
+
+.body-content {
+    width: 100%;
+    margin: 40px auto 0px auto;
+    padding: 10px;
+}
+/*Index Page Css*/
+
+.carousel-container {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.homepage-title {
+position: relative;
+width: 100%;
+height: 700px;
+background-image: url("../AlumniPictures/HomePageTitleComsatsHeader.jpg");
+background-size: cover;
+background-attachment: fixed;
+background-repeat: no-repeat;
+margin-bottom: 20px;
+}
+
+    .homepage-title > .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-family: "Impact, Charcoal, sans-serif";
+        font-weight: bolder;
+        font-size: x-large;
+        text-align: center;
+        color: #F4ECD6;
+    }
+
+.homepage-our-mission {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(red, yellow);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+.homepage-our-mission > .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: "Impact, Charcoal, sans-serif";
+    font-size: large;
+    text-align: center;
+}
+
+.center-form{
+    width: 65%;
+    margin-left: 30%;
+}
+

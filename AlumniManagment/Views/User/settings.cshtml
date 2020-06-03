@@ -1,0 +1,114 @@
+﻿@model AlumniManagment.Models.ViewModels.SettingViewMolde
+
+@{
+    ViewBag.Title = "settings";
+}
+<div class="container-fluid">
+    
+    <div class="row">
+
+        @using (Html.BeginForm("settings", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            <div class="col-sm-6">
+
+                <h3 style="text-align:center;"> Information Setting </h3>
+
+                @Html.AntiForgeryToken()
+
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.profilePicture, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @* <img src="@("/UserImages/"+Url.Content(Model.profilePicture))" alt="Image" style="width:15%; height:100px" />*@
+                        @Html.TextBoxFor(m => m.user.profilePicture, new { @class = "form-control", type = "hidden" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.Email, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.firstName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.firstName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.lastName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.lastName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.facebookLink, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.facebookLink, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.twitterLink, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.twitterLink, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.user.instagramLink, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.user.instagramLink, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" class="btn btn-default" value="Update" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h3 style="text-align:center;"> Privacy Setting </h3>
+
+                <hr>
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.privacy.emailIsPublic) Show Your Email To Others
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.privacy.facebookIsPublic) Show Your Facebook To Others
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.privacy.instagramIsPublic) Show Your Instagram To Others
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.privacy.twitterIsPublic) Show Your Twitter To Others
+                    </label>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+}
+

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AlumniManagment.Dtos.EventDto>
+@{
+                /**/
+
+                ViewBag.Title = "Upcomming Events";
+}
+
+<h3 style="text-align:center">Upcomming Events</h3>
+
+@foreach (var item in Model)
+{
+    var hrs = (item.calendar.start - DateTime.Now).Hours;
+    var days = (item.calendar.start - DateTime.Now).Days;
+    var Mins = (item.calendar.start - DateTime.Now).Minutes;
+    var Secs = (item.calendar.start - DateTime.Now).Seconds;
+    <div class="single-upcoming-event">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="up-event-thumb">
+                    <img src="assets/img/event/event-img-1.jpg" class="img-fluid" alt="Upcoming Event">
+                    <h4 class="up-event-date">Start @item.calendar.start</h4>
+                    <h4 class="up-event-date">End @item.calendar.end</h4>
+                    <h4 class="up-event-date">Registration Fee: Rs @item.registrationFee</h4>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="display-table">
+                    <div class="display-table-cell">
+                        <div class="up-event-text">
+                            <div class="event-countdown-container" data-date="2018/9/10">
+                                <p style="text-align: center">Remaining</p>
+                                <div class="event-countdown-counter">
+                                    <div class="counter-item">
+                                        <span class="counter-label">Days</span>
+                                        <span class="single-cont">@days</span>
+                                    </div>
+
+                                    <div class="counter-item">
+                                        <span class="counter-label">Hrs</span>
+                                        <span class="single-cont">@hrs</span>
+                                    </div>
+
+                                    <div class="counter-item">
+                                        <span class="counter-label">Mins</span>
+                                        <span class="single-cont">@Mins</span>
+                                    </div>
+
+                                    <div class="counter-item">
+                                        <span class="counter-label">Secs</span>
+                                        <span class="single-cont">@Secs</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <h3><a href="single-event.html">@item.title</a></h3>
+                            <p> @item.description </p>
+                            <a href="@Url.Action("register","event",new { eventId = item.id})" class="register-button">join with us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AlumniManagment.Dtos.eventRegistrationDto>
+@{
+    ViewBag.Title = "Events You're Registered For";
+}
+
+<h3 style="text-align:center">Events You're Registered For</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location Link</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td> @item.events.title </td>
+            <td> @item.events.description </td>
+            <td> <a href="@item.events.locationLink" target="_blank">Location</a> </td>
+            <td> @item.events.calendar.start </td>
+            <td> @item.events.calendar.end </td>
+        </tr>
+        }
+    </tbody>
+</table>

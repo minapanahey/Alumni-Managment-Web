@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AlumniManagment</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#662C91; border:none;">
+        <div class="container" style="height:80px; ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/home/index" style="height:85px">
+
+                    <img src="~/AlumniPictures/logo.png" style="height:50px; display: inline" /> <h3 style="display:inline; color: white">CUI Alumni</h3>
+                    <p style="font-size: 15px; margin-left:40px;">Abbottabad Campus</p>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                @if (HttpContextAccessor.HttpContext.Session.GetString("userId") != null)
+                {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Events List", "all", "Event", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Registered Events", "registeredEvents", "User", new { area = "" }, null)</li>
+                    @{
+                        List<string> roles = (List<string>)JsonConvert.DeserializeObject<List<string>>(HttpContextAccessor.HttpContext.Session.GetString("roles"));
+                        if (roles != null && roles.Contains("admin"))
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Create <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="admin" asp-action="createevent">Create New Event</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="admin" asp-action="CreatePoll">Create Poll</a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+                }
+                <partial name="_LoginPartial" />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

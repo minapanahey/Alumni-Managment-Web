@@ -1,0 +1,9 @@
+﻿@if (TempData["err"] != null)
+{
+    <h3 style="color:red;text-align:center"> @TempData["err"].ToString() </h3>
+}
+
+@if (TempData["msg"] != null)
+{
+    <h3 style="color:green;text-align:center"> @TempData["msg"].ToString() </h3>
+}

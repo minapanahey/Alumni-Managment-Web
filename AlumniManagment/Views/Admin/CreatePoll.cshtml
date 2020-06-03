@@ -1,0 +1,24 @@
+﻿@model Polls
+@{
+    ViewData["Title"] = "CreatePoll";
+}
+    <partial name="_SuccessErrorPartialView"></partial>
+    <form method="post" asp-action="CreatePoll" asp-controller="admin" style="margin: 0 auto; width: 40%">
+        <partial name="_FormValidationSummary"></partial>
+        <div class="form-group">
+            <label asp-for="@Model.Question"></label>
+            <input asp-for="@Model.Question" class="form-control" />
+        </div>
+
+        <div class="form-group"> 
+            <label asp-for="@Model.calendar.start">Poll Start</label>
+                <input asp-for="@Model.calendar.start" class="form-control" type="datetime-local" required/>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.calendar.end">Poll End</label>
+                <input asp-for="@Model.calendar.end" class="form-control" type="datetime-local" required/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>

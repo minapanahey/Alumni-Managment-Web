@@ -1,0 +1,7 @@
+﻿@if (!Html.ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <p><b><span class="glyphicon glyphicon-warning-sign"></span> Please fix the following issues then click Save or Save & Continue:</b></p>
+        @Html.ValidationSummary()
+    </div>
+}
